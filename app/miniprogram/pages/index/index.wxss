@@ -1,0 +1,195 @@
+/* 首页样式 */
+
+.hero {
+  text-align: center;
+  padding: 40rpx 0 32rpx;
+}
+
+.hero-icon {
+  font-size: 88rpx;
+  margin-bottom: 16rpx;
+}
+
+.hero-title {
+  font-size: 42rpx;
+  font-weight: 800;
+  color: #1A1A1A;
+}
+
+.hero-subtitle {
+  font-size: 28rpx;
+  color: #888;
+  margin-top: 12rpx;
+}
+
+/* 服务器警告 */
+.server-warn {
+  background: #FFF6E6;
+  border: 2rpx solid #FFD666;
+  border-radius: 16rpx;
+  padding: 20rpx 24rpx;
+  margin-bottom: 24rpx;
+  font-size: 26rpx;
+  color: #8B6914;
+  text-align: center;
+}
+
+/* 模式切换 */
+.mode-tabs {
+  display: flex;
+  background: #EEEEEE;
+  border-radius: 48rpx;
+  padding: 6rpx;
+  margin-bottom: 24rpx;
+}
+
+.mode-tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 32rpx;
+  color: #666;
+  border-radius: 42rpx;
+  transition: all 0.3s;
+}
+
+.mode-tab.active {
+  background: #FFFFFF;
+  color: #FF6B6B;
+  font-weight: 700;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.08);
+}
+
+/* 输入区 */
+.input-label {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.url-input {
+  width: 100%;
+  min-height: 120rpx;
+  background: #F7F8FA;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+.text-input {
+  width: 100%;
+  height: 80rpx;
+  background: #F7F8FA;
+  border-radius: 16rpx;
+  padding: 0 24rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+}
+
+.text-area {
+  width: 100%;
+  min-height: 300rpx;
+  background: #F7F8FA;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+.placeholder {
+  color: #BBBBBB;
+}
+
+.input-tip {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 16rpx;
+  line-height: 1.5;
+}
+
+/* 功能卡片 */
+.feature-card {
+  margin-top: 24rpx;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 16rpx 0;
+  font-size: 30rpx;
+  color: #444;
+}
+
+.feature-emoji {
+  margin-right: 16rpx;
+  font-size: 36rpx;
+  flex-shrink: 0;
+}
+
+/* 关于链接 */
+.about-link {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  padding: 24rpx 0 48rpx;
+}
+
+/* 截图核查（D54） */
+.shot-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.shot-item, .shot-add {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.shot-img {
+  width: 100%;
+  height: 100%;
+}
+
+.shot-del {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 44rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.5);
+  border-bottom-left-radius: 16rpx;
+}
+
+.shot-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #F7F8FA;
+  border: 2rpx dashed #CCCCCC;
+  box-sizing: border-box;
+}
+
+.shot-add-plus {
+  font-size: 64rpx;
+  color: #BBBBBB;
+  line-height: 1;
+}
+
+.shot-add-text {
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 8rpx;
+}

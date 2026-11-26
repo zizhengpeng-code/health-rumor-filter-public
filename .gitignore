@@ -1,0 +1,51 @@
+# 密钥：绝不提交
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# 数据与产物
+data/raw/*
+data/labeled/*
+data/*.db
+data/*.db-journal
+data/models/
+!data/raw/.gitkeep
+!data/labeled/.gitkeep
+results/*
+figs/*
+!results/.gitkeep
+!figs/.gitkeep
+
+# 运行日志
+*.log
+
+# 编辑器
+.idea/
+.vscode/
+.DS_Store
+
+# Local configuration, deployment outputs and working files
+.env.*
+!.env.example
+*.bak
+密钥清单.txt
+*含密钥*
+project.private.config.json
+.workbuddy/
+.workbuddy-ai/
+.wbapp_*
+.pytest_tmp/
+app/cloudrun/dist/
+app/webcloud/dist/
+*.zip
+data/cache/
+data/*.db*
+data/splits/*
+!data/splits/synthetic_*.jsonl
+app/deploy/data/

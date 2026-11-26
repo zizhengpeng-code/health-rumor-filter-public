@@ -1,0 +1,66 @@
+/* 关于页样式 */
+.about-text {
+  font-size: 30rpx;
+  color: #444;
+  line-height: 1.8;
+}
+
+.about-step {
+  display: flex;
+  align-items: flex-start;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #F5F5F5;
+}
+
+.about-step:last-child {
+  border-bottom: none;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 48rpx;
+  height: 48rpx;
+  background: #FF6B6B;
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 28rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+}
+
+.step-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.step-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+
+.step-desc {
+  font-size: 26rpx;
+  color: #888;
+  line-height: 1.6;
+}
+
+.source-item {
+  font-size: 28rpx;
+  color: #555;
+  padding: 12rpx 0;
+  border-bottom: 2rpx solid #F5F5F5;
+}
+
+.source-item:last-child {
+  border-bottom: none;
+}
+
+.disclaimer-card {
+  background: #FFFAF0;
+}

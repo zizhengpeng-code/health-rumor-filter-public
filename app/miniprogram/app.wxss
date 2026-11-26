@@ -1,0 +1,109 @@
+/* 全局样式 —— 适老设计：大字、高对比、清晰层级 */
+
+page {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 32rpx;
+  color: #1A1A1A;
+  background-color: #F7F8FA;
+  line-height: 1.6;
+}
+
+/* 容器 */
+.container {
+  padding: 32rpx 24rpx;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 卡片 */
+.card {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.06);
+}
+
+/* 标题 */
+.section-title {
+  font-size: 34rpx;
+  font-weight: 700;
+  margin-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 8rpx;
+  height: 32rpx;
+  background: #FF6B6B;
+  border-radius: 4rpx;
+  margin-right: 16rpx;
+}
+
+/* 次要文字 */
+.text-secondary {
+  color: #666666;
+  font-size: 28rpx;
+}
+
+.text-tertiary {
+  color: #999999;
+  font-size: 26rpx;
+}
+
+/* 按钮 */
+.btn-primary {
+  background: linear-gradient(135deg, #FF6B6B, #EE5A5A);
+  color: #FFFFFF;
+  font-size: 36rpx;
+  font-weight: 700;
+  border-radius: 48rpx;
+  padding: 28rpx 0;
+  text-align: center;
+  border: none;
+  width: 100%;
+}
+
+.btn-primary[disabled] {
+  background: #CCCCCC;
+  color: #FFFFFF;
+}
+
+.btn-copy {
+  background: #FFF5F5;
+  color: #FF6B6B;
+  font-size: 28rpx;
+  border-radius: 32rpx;
+  padding: 16rpx 40rpx;
+  border: 2rpx solid #FF6B6B;
+  display: inline-block;
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 8rpx 24rpx;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+}
+
+/* 优先级颜色 */
+.priority-urgent { background: #FFF0F0; color: #E53E3E; }
+.priority-notice  { background: #FFF8E6; color: #DD6B20; }
+.priority-inform  { background: #E6F0FF; color: #3182CE; }
+.priority-safe    { background: #E6F8EC; color: #38A169; }
+
+/* 认知面标签颜色 */
+.label-fake   { background: #FFF0F0; color: #E53E3E; }
+.label-partial{ background: #FFF8E6; color: #DD6B20; }
+.label-unknown{ background: #F0F0F0; color: #718096; }
+.label-true   { background: #E6F8EC; color: #38A169; }
+
+/* 行为风险颜色 */
+.risk-high { background: #FFF0F0; color: #E53E3E; }
+.risk-mid   { background: #FFF8E6; color: #DD6B20; }
+.risk-low   { background: #E6F8EC; color: #38A169; }

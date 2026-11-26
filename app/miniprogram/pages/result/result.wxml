@@ -1,0 +1,130 @@
+<!--pages/result/result.wxml-->
+<view class="container" wx:if="{{result}}">
+
+  <!-- 优先级横幅 -->
+  <view class="priority-banner {{priorityClass}}">
+    <view class="priority-label">{{result.priority}}</view>
+    <view class="priority-hint">{{result.priority_hint}}</view>
+  </view>
+
+  <!-- 摘要卡片 -->
+  <view class="card">
+    <view class="section-title">核查摘要</view>
+
+    <view class="summary-grid">
+      <!-- 认知面 -->
+      <view class="summary-item">
+        <view class="summary-label">真伪判定</view>
+        <view class="tag {{labelClass}}">{{result.cognitive_label}}</view>
+        <view class="confidence-bar">
+          <view class="confidence-fill" style="width: {{result.confidence * 100}}%"></view>
+        </view>
+        <view class="confidence-text">置信度 {{result.confidence * 100}}%</view>
+      </view>
+
+      <!-- 行为面 -->
+      <view class="summary-item">
+        <view class="summary-label">行为风险</view>
+        <view class="tag {{riskClass}}">{{result.behavior_level}}</view>
+        <view class="confidence-text" wx:if="{{result.behaviors.length === 0}}">未发现危险话术</view>
+        <view class="confidence-text" wx:else>命中 {{result.behaviors.length}} 项</view>
+      </view>
+    </view>
+
+    <!-- 判定理由 -->
+    <view class="reasoning-box" wx:if="{{result.reasoning}}">
+      <view class="reasoning-label">判定理由</view>
+      <view class="reasoning-text">{{result.reasoning}}</view>
+    </view>
+  </view>
+
+  <!-- 发给爸妈的话（最重要，放显眼位置） -->
+  <view class="card rebuttal-card" wx:if="{{result.rebuttal}}">
+    <view class="section-title">发给爸妈的话</view>
+    <view class="rebuttal-text">{{result.rebuttal}}</view>
+    <view class="rebuttal-sources" wx:if="{{result.rebuttal_sources.length > 0}}">
+      <text>依据：{{result.rebuttal_sources}}</text>
+    </view>
+    <view class="rebuttal-actions">
+      <view class="btn-copy" bindtap="copyRebuttal">
+        {{copied ? '已复制 ✓' : '复制这段话'}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 风险话术 -->
+  <view class="card" wx:if="{{result.behaviors.length > 0}}">
+    <view class="section-title">发现的风险话术</view>
+    <view class="behavior-list">
+      <view class="behavior-item" wx:for="{{result.behaviors}}" wx:key="index">
+        <view class="behavior-type">{{item.type}}</view>
+        <view class="behavior-evidence">「{{item.evidence}}」</view>
+        <view class="behavior-confidence">置信度 {{item.confidence * 100}}%</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 证据链 -->
+  <view class="card" wx:if="{{result.evidence.length > 0}}">
+    <view class="section-title">权威证据来源</view>
+    <view class="evidence-list">
+      <view class="evidence-item" wx:for="{{result.evidence}}" wx:key="id">
+        <view class="evidence-header">
+          <view class="evidence-source">{{item.source_name || item.domain}}</view>
+          <view class="evidence-tier">T{{item.tier}}</view>
+        </view>
+        <view class="evidence-title" wx:if="{{item.title}}">{{item.title}}</view>
+        <view class="evidence-snippet" wx:if="{{item.snippet}}">{{item.snippet}}</view>
+        <view class="evidence-url" wx:if="{{item.url}}" bindtap="copyEvidence" data-url="{{item.url}}">
+          📋 复制链接查看原文
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 运行说明 -->
+  <view class="card" wx:if="{{result.notes.length > 0}}">
+    <view class="section-title">运行说明</view>
+    <view class="note-item" wx:for="{{result.notes}}" wx:key="index">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 截图识别出的文字（D54）：让用户看出识别得对不对 -->
+  <view class="card" wx:if="{{result.recognized_text}}">
+    <view class="section-title" bindtap="toggleRecognized">
+      从截图识别出的文字
+      <text class="toggle-arrow">{{showRecognized ? '收起 ▲' : '展开 ▼'}}</text>
+    </view>
+    <view class="full-report" wx:if="{{showRecognized}}">
+      <text selectable="{{true}}">{{result.recognized_text}}</text>
+    </view>
+  </view>
+
+  <!-- 完整报告 -->
+  <view class="card">
+    <view class="section-title" bindtap="toggleFullReport">
+      完整核查报告
+      <text class="toggle-arrow">{{showFullReport ? '收起 ▲' : '展开 ▼'}}</text>
+    </view>
+    <view class="full-report" wx:if="{{showFullReport}}">
+      <text selectable="{{true}}">{{result.markdown_report}}</text>
+    </view>
+  </view>
+
+  <!-- 底部操作 -->
+  <view class="bottom-actions">
+    <button class="btn-primary" bindtap="goBack">再查一篇</button>
+  </view>
+
+  <!-- 耗时 -->
+  <view class="footer-info">
+    核查耗时 {{result.latency_s}} 秒 · 仅供参考，不构成医疗建议
+  </view>
+
+</view>
+
+<view class="container" wx:else>
+  <view class="error-msg">未获取到核查结果</view>
+  <button class="btn-primary" bindtap="goBack" style="margin-top: 32rpx;">返回首页</button>
+</view>

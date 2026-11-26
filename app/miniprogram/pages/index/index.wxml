@@ -1,0 +1,132 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+
+  <!-- 头部 -->
+  <view class="hero">
+    <view class="hero-icon">🛡️</view>
+    <view class="hero-title">家庭群健康谣言核查</view>
+    <view class="hero-subtitle">帮爸妈查一查，转给家人更安心</view>
+  </view>
+
+  <!-- 服务器状态 -->
+  <view wx:if="{{serverOnline === 'starting'}}" class="server-warn">
+    <text>⏳ 核查服务正在启动，约需半分钟，请稍候……</text>
+  </view>
+  <view wx:if="{{serverOnline === false}}" class="server-warn">
+    <text>⚠️ 暂时连不上核查服务，请稍后再试</text>
+  </view>
+
+  <!-- 模式切换 -->
+  <view class="mode-tabs">
+    <view class="mode-tab {{mode === 'url' ? 'active' : ''}}" bindtap="switchMode" data-mode="url">
+      粘贴链接
+    </view>
+    <view class="mode-tab {{mode === 'text' ? 'active' : ''}}" bindtap="switchMode" data-mode="text">
+      粘贴正文
+    </view>
+    <view class="mode-tab {{mode === 'image' ? 'active' : ''}}" bindtap="switchMode" data-mode="image">
+      上传截图
+    </view>
+  </view>
+
+  <!-- 输入区 -->
+  <view class="card">
+    <!-- URL 模式 -->
+    <block wx:if="{{mode === 'url'}}">
+      <view class="input-label">把公众号文章的链接粘贴到这里</view>
+      <textarea
+        class="url-input"
+        placeholder="长按粘贴链接，如 https://mp.weixin.qq.com/s/..."
+        placeholderClass="placeholder"
+        value="{{url}}"
+        bindinput="onUrlInput"
+        auto-height
+        maxlength="-1"
+      />
+      <view class="input-tip">
+        💡 打开公众号文章 → 右上角「⋯」→ 复制链接 → 回来粘贴
+      </view>
+      <view class="input-tip">
+        小红书、视频号、抖音的链接读不到内容，请截图后用「上传截图」
+      </view>
+    </block>
+
+    <!-- 截图模式（D54） -->
+    <block wx:elif="{{mode === 'image'}}">
+      <view class="input-label">上传截图（最多 3 张）</view>
+      <view class="shot-grid">
+        <view class="shot-item" wx:for="{{images}}" wx:key="*this">
+          <image class="shot-img" src="{{item}}" mode="aspectFill" bindtap="previewImage" data-index="{{index}}" />
+          <view class="shot-del" catchtap="removeImage" data-index="{{index}}">×</view>
+        </view>
+        <view wx:if="{{images.length < 3}}" class="shot-add" bindtap="chooseImages">
+          <text class="shot-add-plus">+</text>
+          <text class="shot-add-text">添加截图</text>
+        </view>
+      </view>
+      <view class="input-label" style="margin-top: 24rpx;">标题（可选）</view>
+      <input
+        class="text-input"
+        placeholder="如不清楚可不填"
+        placeholderClass="placeholder"
+        value="{{title}}"
+        bindinput="onTitleInput"
+      />
+      <view class="input-tip">
+        💡 小红书、视频号、抖音、朋友圈、家庭群聊天记录都可以截图；内容长就分几屏截。视频请截带字幕的画面。
+      </view>
+    </block>
+
+    <!-- 正文模式 -->
+    <block wx:else>
+      <view class="input-label">文章标题（可选）</view>
+      <input
+        class="text-input"
+        placeholder="如不清楚可不填"
+        placeholderClass="placeholder"
+        value="{{title}}"
+        bindinput="onTitleInput"
+      />
+      <view class="input-label" style="margin-top: 24rpx;">粘贴文章正文</view>
+      <textarea
+        class="text-area"
+        placeholder="长按粘贴文章全文"
+        placeholderClass="placeholder"
+        value="{{text}}"
+        bindinput="onTextInput"
+        maxlength="-1"
+      />
+      <view class="input-tip">
+        💡 打不开链接？把文章全文复制粘贴过来也行
+      </view>
+    </block>
+  </view>
+
+  <!-- 开始核查按钮 -->
+  <button class="btn-primary" bindtap="startCheck" disabled="{{checking}}">
+    {{checking ? '正在核查……' : '开始核查'}}
+  </button>
+
+  <!-- 功能说明 -->
+  <view class="card feature-card">
+    <view class="section-title">这个工具能帮什么</view>
+    <view class="feature-item">
+      <text class="feature-emoji">🔍</text>
+      <text>判断文章是真是假，给出权威证据来源</text>
+    </view>
+    <view class="feature-item">
+      <text class="feature-emoji">⚠️</text>
+      <text>识别劝人停药、买保健品、转发诱导等危险话术</text>
+    </view>
+    <view class="feature-item">
+      <text class="feature-emoji">💬</text>
+      <text>自动生成一段话，可以直接发给爸妈</text>
+    </view>
+  </view>
+
+  <!-- 关于 -->
+  <view class="about-link" bindtap="goToAbout">
+    了解更多 →
+  </view>
+
+</view>

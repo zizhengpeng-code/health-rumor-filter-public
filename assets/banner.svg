@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 282" width="1200" height="282" role="img" aria-labelledby="title desc">
+<title id="title">Health Rumor Filter</title>
+<desc id="desc">Verify claims and assess behavior risk</desc>
+<defs><clipPath id="frame"><rect x="1" y="1" width="1198" height="280" rx="24"/></clipPath><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#080e1b"/><stop offset="1" stop-color="#192743"/></linearGradient>
+<radialGradient id="light"><stop stop-color="#80dafa" stop-opacity=".16"/><stop offset="1" stop-color="#80dafa" stop-opacity="0"/></radialGradient>
+<linearGradient id="beam"><stop stop-color="#80dafa" stop-opacity=".06"/><stop offset="1" stop-color="#80dafa" stop-opacity=".34"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#80dafa" opacity=".22"/></pattern></defs>
+<g clip-path="url(#frame)">
+<rect width="1200" height="282" fill="url(#bg)"/>
+<ellipse cx="963" cy="141" rx="288" ry="226" fill="url(#light)"/>
+<path d="M704 0h496v282H704z" fill="url(#dots)"/>
+<path d="M54 217H686M704 34v214" stroke="#80dafa" stroke-opacity=".22"/>
+<path d="M54 52h20" stroke="#80dafa" stroke-width="3" stroke-linecap="round"/>
+<path d="M832 141h38l26-49h70l39 49h100" fill="none" stroke="#80dafa" stroke-width="2"/><path d="M832 141h38l26 49h70l39-49" fill="none" stroke="#f5b488" stroke-width="2"/><rect x="751" y="111" width="82" height="60" rx="13" fill="#192843" stroke="#80dafa" stroke-opacity=".65"/><rect x="910" y="70" width="50" height="44" rx="12" fill="#192843" stroke="#80dafa"/><rect x="910" y="168" width="50" height="44" rx="12" fill="#2d2b43" stroke="#f5b488"/><g transform="translate(779 128) scale(1)" fill="none" stroke="#80dafa" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="21" height="18" rx="3"/><path d="M3 9h21m-16 5h6m-6 4h10"/></g><g transform="translate(922 79) scale(1)" fill="none" stroke="#80dafa" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m16 16 7 7m-15-12h6m-3-3v6"/></g><g transform="translate(922 177) scale(1)" fill="none" stroke="#f5b488" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 22 7v6c0 5-4 8-9 11-5-3-9-6-9-11V7l9-4Z"/><path d="m9 13 3 3 5-6"/></g><g transform="translate(1063 141)"><path d="M0-19 19 0 0 19-19 0Z" fill="#243044" stroke="#f5b488" stroke-width="2"/><circle r="4" fill="#f5b488"/></g>
+<text x="87" y="57" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="15" font-weight="600" fill="#80dafa" letter-spacing="1.1">HEALTH ARTICLE FACT-CHECKING</text>
+<text x="50" y="132" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="63" font-weight="700" fill="#f4f7ff">Health Rumor Filter</text>
+<text x="54" y="174" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="25" font-weight="450" fill="#c7d1e4">Verify claims and assess behavior risk</text>
+<text x="54" y="247" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="14" font-weight="600" fill="#f5b488" letter-spacing="1.1">SOURCE EVIDENCE    /    BEHAVIOR RISK    /    REVIEW PRIORITY</text>
+</g>
+<rect x="1" y="1" width="1198" height="280" rx="24" fill="none" stroke="#80dafa" stroke-opacity=".50" stroke-width="2"/>
+</svg>

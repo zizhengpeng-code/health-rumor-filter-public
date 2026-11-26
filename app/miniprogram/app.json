@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/result/result",
+    "pages/about/about"
+  ],
+  "window": {
+    "navigationBarTitleText": "健康谣言核查",
+    "navigationBarBackgroundColor": "#FF6B6B",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F7F8FA",
+    "enablePullDownRefresh": false
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}
